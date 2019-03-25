@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongodb
+spec:
+  volumes:
+  - name: mongodb-data
+  ## gePertistanceData example
+    # gcePersistenceData:
+    #   pdname: mongodb
+    #   fsType: ext4
+    hostPath:
+      path: /data/db
+      type: Directory
+  containers:
+  - image: mongo
+    name: mongodb
+    volumeMounts:
+    - name: mongodb-data
+      mountPath: /data
+    ports:
+    - containerPort: 27017
+      protocol: TCP

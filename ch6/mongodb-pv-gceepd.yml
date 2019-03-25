@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistenceVolume
+metadata:
+  name: mongodb-pv
+spce:
+  capacity:
+    storage: 1Gi
+  accesNodes:
+    - ReadWriteOnce
+    - ReadOnlyMaby
+  persistencVolumeReclaimPolicy: Retain
+  pdName: mongodb-pv
+  fsType: ext4
